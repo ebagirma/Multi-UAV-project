@@ -1,0 +1,68 @@
+<!-- <header class="demo-header">
+
+    <div (click)="_toggleSidebar()" style="margin: 10px"><i class='fas fa-bars' style="font-size: larger;"></i></div>
+    <div style=""><a href="/users" class="sidebar-a"><i class="fas fa-user"></i></a></div>
+</header> -->
+
+<nav class="navbar navbar-expand-sm demo-header justify-content-end" style="padding: 0">
+  <a href='/' class="navbar-brand"><img src="{{'./assets/logo_wide.png'}}" height="65px"/></a>
+  <div (click)="_toggleSidebar()" style="margin: 10px"><i class='fas fa-bars' style="font-size: larger;"></i></div>
+
+  <div class="ml-auto mr-1 collapse navbar-collapse flex-grow-0" style="padding-right: 20px;">
+      <ul class="navbar-nav text-right">
+          <li class="nav-item active" style="margin-right: 30px;">
+              <a routerLink="/notification" class="sidebar-a"><i class="fas fa-bell"></i></a>
+          </li>
+          <li class="nav-item active" style="margin-right: 30px;">
+              <a routerLink="/settings" class="sidebar-a"><i class="fas fa-cog"></i></a>
+          </li>
+          <li class="nav-item active">
+              <a routerLink="/users" class="sidebar-a"><i class="fas fa-user"></i></a>
+          </li>
+      </ul>
+  </div>
+</nav>
+
+<ng-sidebar-container style="height: 100vh;">
+
+  <!-- A sidebar -->
+  <ng-sidebar  [(opened)]="opened" [(mode)]="slide" autoCollapseWidth="{{500}}">
+    <div class="sidebar-main">
+        <a routerLink="/farms" class="sidebar-a">
+          <div class="sidebar-l" [ngClass]="{'sidebar-active': active === 0}">
+              Farms
+          </div>
+        </a>
+        <a routerLink="/schedules" class="sidebar-a">
+          <div class="sidebar-l" [ngClass]="{'sidebar-active': active === 1}">
+              Schedules
+          </div>
+        </a>
+        <a routerLink="/maps" class="sidebar-a">
+          <div class="sidebar-l" [ngClass]="{'sidebar-active': active === 2}">
+              Maps
+          </div>
+        </a>
+        <a routerLink="/analytics" class="sidebar-a">
+          <div class="sidebar-l" [ngClass]="{'sidebar-active': active === 3}">
+              Analytics
+          </div>
+        </a>
+        <a routerLink="/timeline" class="sidebar-a">
+          <div class="sidebar-l" [ngClass]="{'sidebar-active': active === 4}">
+            Timeline
+          </div>
+        </a>
+    </div>
+  </ng-sidebar>
+
+  <!-- Page content -->
+  <div ng-sidebar-content>
+      <div class="main-body">
+          <!-- <div style="width: 300px; background-color: blue; height: 500px;"></div> -->
+          <router-outlet></router-outlet>
+      </div>
+
+  </div>
+
+</ng-sidebar-container>

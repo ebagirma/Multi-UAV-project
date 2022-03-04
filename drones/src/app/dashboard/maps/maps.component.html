@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-8">
+    <mgl-map [style]="'mapbox://styles/mapbox/satellite-v9'"
+            [zoom]="[14]"
+            [center]="[38.8643006354834, 9.066837522511264]"
+            (load)="load($event)">
+    </mgl-map>
+  </div>
+  <div class="col-md-4">
+      <div class="text-center my-4" *ngIf="save">
+        <button class="btn btn-success" (click)="updateSchedule()">Save Updated Schedule</button>
+      </div>
+      <div class="text-center my-4">
+        <button class="btn btn-primary" (click)="surveySchedule()">Create a Survey Schedule</button>
+      </div>
+    <div class="card">
+      <div class="card-header">
+        <span>Registered Drones</span>
+        <span class="mx-2"><button class="text-right btn btn-success" (click)="scanDrones()">Scan</button></span>
+      </div>
+      <div class="card-body">
+        <table class="table table-sm table-hover table-responsive w-100">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">URI</th>
+              <th scope="col">IP</th>
+              <th scope="col">MAC</th>
+              <th scope="col">Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let drone of drones; let i = index">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{drone.uri}}</td>
+              <td>{{drone.network_address}}</td>
+              <td>{{drone.mac_address}}</td>
+              <td><i class="fa fa-trash"></i></td>
+            </tr>
+            <tr *ngIf="drones.length == 0">
+              <td colspan="5" class='text-center'>No drones registered</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="my-3">
+      <a class="btn btn-warning" routerLink="/gallery/{{id}}">Go to Gallery</a>
+    </div>
+  </div>
+</div>

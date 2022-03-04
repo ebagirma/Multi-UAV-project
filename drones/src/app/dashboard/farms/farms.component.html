@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col" *ngFor="let farm of farms">
+    <div class="card text-center">
+      <div class="card-header">
+        {{ farm.name }}
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ farm.description.slice(0, 60) }}...</p>
+        <a routerLink="/farms/{{farm.id}}" class="btn btn-outline-dark" [state]="{'farm' : farm }">Manage</a>
+      </div>
+      <div class="card-footer text-muted">
+        {{ farm.city }}
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card text-center">
+      <div class="card-header bg-white">
+        Create A Farm
+      </div>
+      <div class="card-body">
+        <p class="card-text">Click here to create a farm here to start managing your property.</p>
+        <a routerLink="/farms/create" class="btn btn-dark">Create</a>
+      </div>
+      <div class="card-footer text-muted bg-white">
+        Farm Drones
+      </div>
+    </div>
+  </div>
+</div>

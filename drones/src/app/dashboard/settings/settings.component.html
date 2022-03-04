@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="mx-5 col-md-10">  
+    <div class="row">
+      <div class="card">
+        <div class="card-header">
+          Drone Survey Parameters
+        </div>
+        <div class="card-body">
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="exampleInputFlight1">Drone Altitude</label>
+              <input (ngModelChange)="changeParam($event, 'altitude')" [ngModel]="altitude" type="number" class="form-control" id="exampleInputFlight1" aria-describedby="flightHelp" placeholder="Enter Altitude">
+              <small id="flightHelp" class="form-text text-muted">How high your drones will fly in metres.</small>
+            </div>
+            <div class="form-group col">
+              <label for="exampleInputSpeed1">Drone Speed</label>
+              <input (ngModelChange)="changeParam($event, 'speed')" [ngModel]="speed" type="number" class="form-control" id="exampleInputSpeed1" aria-describedby="speedHelp" placeholder="Enter Speed">
+              <small id="speedHelp" class="form-text text-muted">How fast your drones will fly in m/s.</small>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="exampleInputSlope1">Survey Slope</label>
+              <input (ngModelChange)="changeParam($event, 'slope')" [ngModel]="slope" type="number" class="form-control" id="exampleInputSlope1" aria-describedby="slopeHelp" placeholder="Enter Altitude">
+              <small id="slopeHelp" class="form-text text-muted">The slope of the survey paths</small>
+            </div>
+            <div class="form-group col">
+              <label for="exampleInputSpacing1">Survey Spacing</label>
+              <input (ngModelChange)="changeParam($event, 'spacing')" [ngModel]="spacing" type="number" class="form-control" id="exampleInputSpacing1" aria-describedby="spacingHelp" placeholder="Enter Spacing">
+              <small id="spacingHelp" class="form-text text-muted">The spacing between to consecutive passes in meters</small>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-success" (click)="saveParameters()">Save Parameters</button>
+            <span class="mx-4">{{message}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div>

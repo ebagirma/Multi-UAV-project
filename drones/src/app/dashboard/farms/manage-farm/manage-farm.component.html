@@ -1,0 +1,49 @@
+<div class="card" style="margin: 10px; padding: 20px;">
+  <div class="card text-center">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-10" style="padding-left: 11em">{{ farm.name }}</div>
+        <div class="col-2"><a routerLink="/maps/{{farm.id}}">Go to Map <i class="fa fa-map"></i></a></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{ farm.description }}</p>
+    </div>
+    <div class="card-footer text-muted">
+      {{ farm.city }}
+    </div>
+  </div>
+  <table class="table table-success table-bordered table-striped" style="margin-top: 40px;">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Quantity (in kg)</th>
+      <th scope="col">Area (in m^2)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let crop of crops">
+      <th scope="row">{{crop.id}}</th>
+      <td>{{ plants[crop.id].name }} ({{ plants[crop.id].scientific_name }})</td>
+      <td>{{ crop.quantity }}</td>
+      <td>{{ crop.area_covered }}</td>
+    </tr>
+    <tr>
+      <td>#</td>
+      <td>
+        <select class="form-control-sm form-control">
+          <option>Apple</option>
+        </select>
+      </td>
+      <td>
+        <input type="number" class="form-control-sm form-control" />
+      </td>
+      <td>
+        <input type=number class="form-control-sm form-control" />
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="text-center"><button class="btn btn-dark">Save New Crop</button></div>
+</div>

@@ -1,0 +1,19 @@
+<div class="text-center"><h4>Images taken By Drones for Farm</h4></div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="accordion" id="myAccordion">
+        <div class="card" *ngFor="let drone of drones">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" (click)="getPictures(drone.id)">URI- {{drone.uri}} <b>(MAC Address- {{drone.mac_address}})</b></button>
+                </h2>
+            </div>
+            <div id="collapseOne" class="collapse" [ngClass]="{'show': selectedDrone == drone.id}" aria-labelledby="headingOne" data-parent="#myAccordion">
+                <div class="card-body">
+                  <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
